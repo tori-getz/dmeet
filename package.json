@@ -7,7 +7,7 @@
   "scripts": {
     "prepare": "husky",
     "lint": "eslint ./packages --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "eslint ./packages --fix --color",
+    "lint:fix": "eslint ./packages --fix --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier . --write",
     "lint-staged": "lint-staged --allow-empty",
     "commitlint": "commitlint --edit"
@@ -28,9 +28,9 @@
     "typescript": "^5.4.5"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,css,scss,md}": [
+    "*.{js,jsx,ts,tsx}": [
       "prettier --write",
-      "eslint ./packages --fix --color"
+      "eslint ./packages --fix --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
     ]
   }
 }
