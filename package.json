@@ -1,11 +1,17 @@
 {
   "name": "dmeet",
   "packageManager": "yarn@4.3.0",
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/@nextui-org/*"
+    ]
+  },
   "scripts": {
     "prepare": "husky",
+    "dev": "yarn workspaces foreach -Api run dev",
     "lint": "eslint ./packages --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint ./packages --fix --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier . --write",
@@ -29,8 +35,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "prettier --write",
-      "eslint ./packages --fix --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+      "prettier --write"
     ]
   }
 }

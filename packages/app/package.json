@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@dmeet/contract": "0.0.1",
+    "@hookform/resolvers": "^3.6.0",
     "@metamask/providers": "^17.0.0",
     "@nextui-org/react": "^2.4.1",
     "@tanstack/react-router": "^1.35.6",
@@ -18,20 +20,27 @@
     "effector": "^23.2.2",
     "effector-logger": "^0.15.0",
     "effector-react": "^23.2.1",
+    "ethers": "^6.13.0",
     "framer-motion": "^11.2.10",
+    "inversify": "^6.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.5",
     "react-icons": "^5.2.1",
     "react-tree-provider": "^1.0.8",
     "sass": "^1.77.5",
     "ts-pattern": "^5.2.0",
     "use-media-stream": "^1.0.3",
-    "vite-plugin-svgr": "^4.2.0"
+    "uuid": "^10.0.0",
+    "viem": "^2.13.8",
+    "vite-plugin-svgr": "^4.2.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20.14.2",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
+    "@types/uuid": "^9.0.8",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",

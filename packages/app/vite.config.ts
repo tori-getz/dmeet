@@ -11,6 +11,7 @@ export default defineConfig({
     TanStackRouterVite({ routesDirectory: 'src/pages' }),
     svgr(),
   ],
+  envDir: path.resolve(__dirname, '..', '..'),
   resolve: {
     alias: {
       '~': path.resolve(__dirname, 'src'),

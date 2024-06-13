@@ -10,40 +10,53 @@
 
 // Import Routes
 
-import { Route as rootRoute } from './pages/__root'
-import { Route as IndexImport } from './pages/index'
-import { Route as CreateRoomIndexImport } from './pages/create-room/index'
+import { Route as rootRoute } from './pages/__root';
+import { Route as IndexImport } from './pages/index';
+import { Route as CreateRoomIndexImport } from './pages/create-room/index';
+import { Route as RoomRoomIdImport } from './pages/room/$roomId';
 
 // Create/Update Routes
 
 const IndexRoute = IndexImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
-} as any)
+} as any);
 
 const CreateRoomIndexRoute = CreateRoomIndexImport.update({
   path: '/create-room/',
   getParentRoute: () => rootRoute,
-} as any)
+} as any);
+
+const RoomRoomIdRoute = RoomRoomIdImport.update({
+  path: '/room/$roomId',
+  getParentRoute: () => rootRoute,
+} as any);
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
     '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
-    }
+      id: '/';
+      path: '/';
+      fullPath: '/';
+      preLoaderRoute: typeof IndexImport;
+      parentRoute: typeof rootRoute;
+    };
+    '/room/$roomId': {
+      id: '/room/$roomId';
+      path: '/room/$roomId';
+      fullPath: '/room/$roomId';
+      preLoaderRoute: typeof RoomRoomIdImport;
+      parentRoute: typeof rootRoute;
+    };
     '/create-room/': {
-      id: '/create-room/'
-      path: '/create-room'
-      fullPath: '/create-room'
-      preLoaderRoute: typeof CreateRoomIndexImport
-      parentRoute: typeof rootRoute
-    }
+      id: '/create-room/';
+      path: '/create-room';
+      fullPath: '/create-room';
+      preLoaderRoute: typeof CreateRoomIndexImport;
+      parentRoute: typeof rootRoute;
+    };
   }
 }
 
@@ -51,8 +64,9 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren({
   IndexRoute,
+  RoomRoomIdRoute,
   CreateRoomIndexRoute,
-})
+});
 
 /* prettier-ignore-end */
 
@@ -63,11 +77,15 @@ export const routeTree = rootRoute.addChildren({
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/room/$roomId",
         "/create-room/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/room/$roomId": {
+      "filePath": "room/$roomId.tsx"
     },
     "/create-room/": {
       "filePath": "create-room/index.tsx"

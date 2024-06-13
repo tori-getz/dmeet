@@ -1,7 +1,9 @@
-export const connectWallet = async () => {
-  const accounts = await window.ethereum?.request({
+import { Account } from '~/shared/blockchain';
+
+export const connectWallet = async (): Promise<Account[]> => {
+  const accounts = await window.ethereum!.request({
     method: 'eth_requestAccounts',
   });
 
-  return accounts;
+  return accounts as Account[];
 };
